@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSphere Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            background-color: #ffffffdf;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: #0078ff;
+        }
+        header nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+        header .actions {
+            margin-right: 90px;
+            display: flex;
+            align-items: center;
+        }
+        header .actions button {
+            margin-left: 15px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #0078ff;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .hero {
+            position: relative;
+            background: url('/Assets/download.png') no-repeat center center/cover;
+            height: 500px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 60px;
+        }
+        .hero h1 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 56px;
+            margin: 0;
+        }
+        .hero p {
+            margin: 10px 0;
+        }
+        .blog-section {
+            padding: 40px;
+        }
+        .blog-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        .blog-section .filters {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .blog-section .filters button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .blog-section .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .blog-section .grid .card {
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: #fff;
+        }
+        .blog-section .grid .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .blog-section .grid .card .content {
+            padding: 20px;
+        }
+        .blog-section .grid .card .content h3 {
+            font-size: 18px;
+            margin: 0 0 10px;
+        }
+        .blog-section .grid .card .content p {
+            margin: 0;
+            color: #666;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 40px;
+            display: flex;
+            justify-content: space-between;
+        }
+        footer .column {
+            flex: 1;
+            margin: 0 20px;
+        }
+        footer .column h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        footer .column a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            margin: 5px 0;
+        }
+        footer .subscribe input {
+            padding: 10px;
+            width: calc(100% - 120px);
+            border: none;
+            border-radius: 5px 0 0 5px;
+        }
+        footer .subscribe button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #0078ff;
+            color: #fff;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+        }
+        .copyright-footer {
+                    position: absolute;
+                    bottom: -300px;
+                    right: 10px;
+                    font-size: 12px;
+                    color: #666;
+                }
+        span{
+            background-color: #ffffff97;
+            color: black;
+        }
+    </style>
+</head>
+<body>
+    <div id="chatbot-icon" style="position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background-color: #ffffff; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); cursor: pointer; z-index: 1000;">
+        <img src="/Assets/bot.png" alt="Chatbot Icon" style="width: 30px; height: 30px;">
+    </div>
+    <script>
+        document.getElementById('chatbot-icon').addEventListener('click', function() {
+            alert('Chatbot feature coming soon!');
+        });
+    </script>
+    <header style="position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;">
+        <div class="logo">TechSphere</div>
+        <nav>
+            <a href="#">AI</a>
+            <a href="#">Cloud</a>
+            <a href="#">Cybersecurity</a>
+            <a href="#">Programming</a>
+        </nav>
+        <div class="actions">
+            <a href="#">EN</a>
+            <a href="index.html" style="margin-left: 15px; text-decoration: none; color: #0078ff; font-weight: 500; padding: 5px 15px; border: 1px solid #0078ff; border-radius: 5px; transition: background-color 0.3s, color 0.3s;" onmouseover="this.style.backgroundColor='#0078ff'; this.style.color='#fff';" onmouseout="this.style.backgroundColor=''; this.style.color='#0078ff';">Sign In</a>
+            <button onclick="document.location='signup.html'">Sign Up</button>
+        </div>
+    </header>
+    <div class="hero">
+        <h1><span>&nbsp;The Future of Artificial Intelligence&nbsp;</span></h1>
+        <p>Discover the latest trends and innovations shaping the tech world.</p>
+    </div>
+    <section class="blog-section">
+        <h2>Tech Blog</h2>
+        <div class="filters">
+            <div>
+                <button>All</button>
+                <button>AI</button>
+                <button>Cloud</button>
+                <button>Programming</button>
+                <button>Security</button>
+            </div>
+            <div>
+                <button>Sort by: Newest</button>
+            </div>
+        </div>
+        <div class="grid">
+            <div class="card">
+                <img src="/Assets/4.jpg" alt="Blog Image">
+                <div class="content">
+                    <h3>Top 10 AI Innovations of 2024</h3>
+                    <p>30 Jan 2024 - 10 mins read</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/Assets/1.jpg" alt="Blog Image">
+                <div class="content">
+                    <h3>Cloud Computing Trends to Watch</h3>
+                    <p>29 Jan 2024 - 5 mins read</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/Assets/2.jpg" alt="Blog Image">
+                <div class="content">
+                    <h3>Cloud Computing Trends to Watch</h3>
+                    <p>29 Jan 2024 - 5 mins read</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="/Assets/3.jpg" alt="Blog Image">
+                <div class="content">
+                    <h3>Cloud Computing Trends to Watch</h3>
+                    <p>29 Jan 2024 - 5 mins read</p>
+                </div>
+            </ div>
+            <!-- Add more cards as needed -->
+        </div>
+    </section>
+    <footer>
+        <div class="column">
+            <h4>About</h4>
+            <a href="#">About Us</a>
+            <a href="#">Blog</a>
+            <a href="#">Career</a>
+        </div>
+        <div class="column">
+            <h4>Support</h4>
+            <a href="#">Contact Us</a>
+            <a href="#">Return</a>
+            <a href="#">FAQ</a>
+        </div>
+        <div class="column subscribe">
+            <h4>Get Updates</h4>
+            <div style="display: flex; align-items: center;">
+            <input type="email" placeholder="Enter your email" style="flex: 1; padding: 10px; border: none; border-radius: 5px 0 0 5px;">
+            <button style="padding: 10px 20px; border: none; background-color: #0078ff; color: #fff; border-radius: 0 5px 5px 0; cursor: pointer;">Subscribe</button>
+            </div>
+        </div>
+        <div class="copyright-footer">
+            &copy; 2023 Darkseid. All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>

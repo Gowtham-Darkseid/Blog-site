@@ -1,0 +1,243 @@
+<div class="social-login"></div>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+       @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Prompt", sans-serif;
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            min-height: 100vh;
+            background-color: #000000;
+        }
+
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .left {
+            flex: 1;
+            background: url('Soldier.gif') no-repeat center center/cover;
+            position: relative;
+        }
+
+        .left .content {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: #fff;
+        }
+
+        .left .content h3 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #2424247a;
+        }
+
+        .left .content p {
+            font-size: 6px;
+            color: #2424247a;
+        }
+
+        .right {
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right h1 {
+            font-family: "Prompt", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+            margin-bottom: 10px;
+        }
+
+        .right p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group input {
+            height: 50px; /* Increased height */
+        }
+        .form-group input:focus {
+            outline: none;
+            border-color: #007bff;
+        }
+
+        .form-group .toggle-password {
+            position: relative;
+            right: 40px;
+            top: 10px;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 16px;
+            color: #666;
+        }
+
+        .form-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .form-actions a {
+            font-size: 14px;
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .form-actions a:hover {
+            text-decoration: underline;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .social-login {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .social-login img {
+            width: 30px;
+            height: 30px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <div class="content">
+                <h3>Selected Works</h3>
+                <p>Darkseid.ui<br>UI & Illustration</p>
+            </div>
+        </div>
+        <div class="right">
+            <h1>Hi Defenders</h1>
+            <p>Welcome to UNISOCIAL</p>
+            <form>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group" style="position: relative;">
+                    <label for="password">Password</label>
+                    <div style="position: relative;"></div>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                    <i class="fa-regular fa-eye toggle-password" onclick="togglePassword()"></i>
+                </div>
+                <div class="form-actions">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+            </form>
+            <div class="social-login">
+                <i class="fab fa-google" style="font-size: 30px; margin: 0 10px; cursor: pointer; color: #007bff;"></i>
+                <i class="fab fa-facebook" style="font-size: 30px; margin: 0 10px; cursor: pointer; color: #007bff;"></i>
+                <i class="fab fa-twitter" style="font-size: 30px; margin: 0 10px; cursor: pointer; color: #007bff;"></i>
+            </div>
+            <style>
+                .form-group input {
+                    width: 80%; 
+                }
+                .copyright-footer {
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    font-size: 12px;
+                    color: #666;
+                }
+            </style>
+            <div class="footer">
+                <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+            </div>
+            <div class="copyright-footer">
+                &copy; 2023 Darkseid. All rights reserved.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+        }
+    </script>
+</body>
+</html>
