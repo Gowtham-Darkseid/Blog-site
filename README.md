@@ -67,6 +67,6 @@ Blog-site/
 
 ## 📬 Contact
 
-Made with ❤️ by [Gowtham S](https://github.com/Gowtham-Darkseid)
+Made with ❤️ by [Gowtham darkseid](https://github.com/Gowtham-Darkseid)
 
 Feel free to contribute, star ⭐, or fork 🍴 this repo!
