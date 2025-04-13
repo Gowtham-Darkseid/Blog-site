@@ -204,7 +204,7 @@
                 <div class="form-actions">
                     <a href="#">Forgot password?</a>
                 </div>
-                <button type="submit" class="btn">Login</button>
+                <button type="submit" class="btn" >Login</button>
             </form>
             <div class="social-login">
                 <i class="fab fa-google" style="font-size: 30px; margin: 0 10px; cursor: pointer; color: #007bff;"></i>
@@ -233,11 +233,27 @@
     </div>
 
     <script>
+        const defaultAdmin = {
+            password: "admin123"
+        };
+
         function togglePassword() {
             const passwordField = document.getElementById('password');
             const type = passwordField.type === 'password' ? 'text' : 'password';
             passwordField.type = type;
         }
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+
+            if (password === defaultAdmin.password) {
+                alert('Login successful as Admin!');
+                window.location.href = 'home.html';
+            } else {
+                alert('Invalid credentials!');
+            }
+        });
     </script>
 </body>
 </html>
