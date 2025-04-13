@@ -58,7 +58,12 @@ Blog-site/
 - ✅ Add edit/delete functionality for blog posts  
 - ✅ Integrate with a backend (Node.js / Firebase)  
 - ✅ Add markdown support for blog content  
-- ✅ Search and filter options  
+- ✅ Search and filter options
+
+## Default pass
+
+- graj200026
+- admin@123  
 
 ## 📬 Contact
 
