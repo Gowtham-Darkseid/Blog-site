@@ -58,10 +58,15 @@ Blog-site/
 - ✅ Add edit/delete functionality for blog posts  
 - ✅ Integrate with a backend (Node.js / Firebase)  
 - ✅ Add markdown support for blog content  
-- ✅ Search and filter options  
+- ✅ Search and filter options
+
+## Default pass
+
+- graj200026
+- admin@123  
 
 ## 📬 Contact
 
-Made with ❤️ by [Gowtham S](https://github.com/Gowtham-Darkseid)
+Made with ❤️ by [Gowtham darkseid](https://github.com/Gowtham-Darkseid)
 
 Feel free to contribute, star ⭐, or fork 🍴 this repo!
