@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -5,165 +6,72 @@
     <title>Signup Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="sign.css">
+    <script type="module">
+        // Import Firebase SDKs
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+        import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDXjbAtvPCWInVFq3HxUUM3IEjO-NJnMxg",
+            authDomain: "mini-blog-40993.firebaseapp.com",
+            projectId: "mini-blog-40993",
+            storageBucket: "mini-blog-40993.appspot.com",
+            messagingSenderId: "901622526137",
+            appId: "1:901622526137:web:4d6942b5005b6fc2b26b68",
+            measurementId: "G-R82EB5KMDG"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        // Google Sign-In
+       // Google Sign-In
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector('.fab.fa-google').addEventListener('click', () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
+                alert(`Welcome, ${user.displayName}!`);
+                console.log(user); // Handle user data
+
+                // Redirect to home.html
+                window.location.href = "home.html";
+            })
+            .catch((error) => {
+                console.error(error.message);
+                alert('Google Sign-In failed. Please try again.');
+            });
+    });
+
+    // Email/Password Sign-Up
+    document.querySelector('form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                alert('Account created successfully!');
+                console.log(user); // Handle user data
+
+                // Redirect to home.html
+                window.location.href = "home.html";
+            })
+            .catch((error) => {
+                console.error(error.message);
+                alert('Sign-Up failed. Please try again.');
+            });
+    });
+});
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: "Prompt", sans-serif;
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            display: flex;
-            width: 80%;
-            max-width: 1200px;
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .left {
-            flex: 1;
-            background: url('Soldier.gif') no-repeat center center/cover;
-            position: relative;
-        }
-
-        .left .content {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: #fff;
-        }
-
-        .left .content h3 {
-            font-size: 12px;
-            font-weight: 700;
-            color: #2424247a;
-        }
-
-        .left .content p {
-            font-size: 6px;
-            color: #2424247a;
-        }
-
-        .right {
-            flex: 1;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .right h1 {
-            font-family: "Prompt", sans-serif;
-            font-size: 32px;
-            font-weight: 500;
-            margin-bottom: 10px;
-        }
-
-        .right p {
-            font-family: "Prompt", sans-serif;
-            font-size: 16px;
-            margin-bottom: 30px;
-            color: #666;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
-
-        .form-group label {
-            display: block;
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-
-        .form-group input {
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
-
-        .form-group input {
-            height: 50px;
-        }
-
-        .form-group input:focus {
-            outline: none;
-            border-color: #007bff;
-        }
-
-        .form-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 20px;
-            font-size: 16px;
-            color: #fff;
-            background-color: #007bff;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-        }
-
-        .btn:hover {
-            background-color: #0056b3;
-        }
-
-        .social-login {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-        }
-
-        .social-login img {
-            width: 30px;
-            height: 30px;
-            margin: 0 10px;
-            cursor: pointer;
-        }
-
-        .footer {
-            text-align: center;
-            margin-top: 20px;
-            font-size: 14px;
-        }
-
-        .footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
-        }
-        .copyright-footer {
-                    position: absolute;
-                    bottom: 10px;
-                    right: 10px;
-                    font-size: 12px;
-                    color: #666;
-                }
+        /* Add your existing styles here */
     </style>
 </head>
 <body>

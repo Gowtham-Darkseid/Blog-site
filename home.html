@@ -123,15 +123,37 @@
                     <li class="nav-item">
                         <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
                     </li>
+                    <li class="nav-item">
+                        <button class="btn btn-primary btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#writeBlogModal">Write a Blog</button>
+                    </li>
+                    <li class="nav-item ms-2">
+                        <img src="./Assets/giff.gif" alt="Profile" class="rounded-circle" style="cursor: pointer; width: 40px; height: 40px;" data-bs-toggle="modal" data-bs-target="#profileModal">
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
-
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Profile Options</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group">
+                        <li class="list-group-item"><a href="#" class="text-decoration-none">View Profile</a></li>
+                        <li class="list-group-item"><a href="#" class="text-decoration-none">Change Profile</a></li>
+                        <li class="list-group-item"><a href="logout.html" id="logoutButton" class="text-decoration-none text-danger">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Hero Section -->
     <section class="container my-4">
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-8" onclick="openBlogModal('Budget Issues Force The Tour To Be Cancelled', 'Fashion', 'By Admin | December 9, 2021 | 0 Comments', './Assets/bg.mp4')">
                 <div class="position-relative">
                     <video autoplay muted loop class="w-100 rounded">
                         <source src="./Assets/bg.mp4" type="video/mp4">
@@ -161,20 +183,57 @@
                 </div>
             </div>
     </section>
+     
+    <div class="modal fade" id="writeBlogModal" tabindex="-1" aria-labelledby="writeBlogModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="writeBlogModalLabel">Write a Blog</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="blogForm">
+                        <div class="mb-3">
+                            <label for="blogTitle" class="form-label">Blog Title</label>
+                            <input type="text" class="form-control" id="blogTitle" placeholder="Enter blog title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="blogCategory" class="form-label">Category</label>
+                            <input type="text" class="form-control" id="blogCategory" placeholder="Enter category" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="blogImage" class="form-label">Upload Image</label>
+                            <input type="file" class="form-control" id="blogImage" accept="image/*" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="blogContent" class="form-label">Content</label>
+                            <textarea class="form-control" id="blogContent" rows="4" placeholder="Write your blog content here" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Publish</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    <section class="container my-4">
+        <h2 class="h4 mb-3">Recently Added Blogs</h2>
+        <div class="row" id="recentBlogs">
+        </div>
+    </section>
 
-    <!-- Advertisement Banner -->
     <div class="container my-4">
         <div class="text-center">
             <img src="./Assets/Capture.PNG" alt="Advertisement" class="img-fluid">
         </div>
     </div>
-
-    <!-- Top Stories Section -->
+ 
+    
     <section class="container my-4">
         <h2 class="h4 mb-3">Top Stories</h2>
         <div class="row">
             <div class="col-md-3">
-                <div class="card">
+                <div class="card" onclick="openBlogModal('How childhood viral infections may year 2021 Section', 'Music', 'By Admin | December 9, 2021', 'https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300', 'This blog explores how childhood viral infections have impacted health trends in 2021.')">
                     <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="card-img-top" alt="Story">
                     <div class="card-body">
                         <span class="category-badge">Music</span>
@@ -184,7 +243,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
+                <div class="card" onclick="openBlogModal('Animal Nation Are Struggling To Save Their Wildlife', 'Animal', 'By Admin | December 9, 2021', 'https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300', 'This blog discusses the challenges faced by animal nations in preserving their wildlife.')">
                     <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="card-img-top" alt="Story">
                     <div class="card-body">
                         <span class="category-badge">Animal</span>
@@ -194,7 +253,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
+                <div class="card" onclick="openBlogModal('If you went round the world which places could', 'Travel', 'By Admin | December 9, 2021', 'https://cdn.pixabay.com/photo/2018/06/13/09/33/technology-3472299_1280.jpg', 'Discover the best travel destinations around the world in this blog.')">
                     <img src="https://cdn.pixabay.com/photo/2018/06/13/09/33/technology-3472299_1280.jpg" class="card-img-top" alt="Story">
                     <div class="card-body">
                         <span class="category-badge">Travel</span>
@@ -204,7 +263,7 @@
                 </div>
             </div>
             <div class="col-md-3">
-                <div class="card">
+                <div class="card" onclick="openBlogModal('Moon They Landing How are Main Close Space Really', 'Health', 'By Admin | October 9, 2021', 'https://cdn.pixabay.com/photo/2024/11/25/10/38/mountains-9223041_1280.jpg', 'Explore the health implications of space travel in this insightful blog.')">
                     <img src="https://cdn.pixabay.com/photo/2024/11/25/10/38/mountains-9223041_1280.jpg" class="card-img-top" alt="Story">
                     <div class="card-body">
                         <span class="category-badge">Health</span>
@@ -216,11 +275,10 @@
         </div>
     </section>
 
-    <!-- What's New Section -->
     <section class="container my-4">
         <h2 class="h4 mb-3">What's New</h2>
         <div class="row">
-            <div class="col-lg-6"> <!-- Reduced width from col-lg-7 to col-lg-6 -->
+            <div class="col-lg-6"> 
                 <div class="position-relative">
                     <video autoplay muted loop class="rounded" style="width: 90%; height: auto;"> <!-- Reduced video size -->
                         <source src="./Assets/blog.mp4" type="video/mp4">
@@ -229,7 +287,7 @@
                     <h3 class="mt-2">African Nation Are Struggling To Save Their Wildlife</h3>
                 </div>
             </div>
-            <div class="col-lg-6"> <!-- Increased width from col-lg-5 to col-lg-6 -->
+            <div class="col-lg-6"> 
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active" id="travel-tab" data-bs-toggle="tab" data-bs-target="#travel" type="button" role="tab">Travel</button>
@@ -265,8 +323,71 @@
             </div>
         </div>
     </section>
-
-    <!-- Social Media Widget -->
+    <section class="container my-4">
+        <h2 class="h4 mb-3">Top Stories</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="card-img-top" alt="Story">
+                    <div class="card-body">
+                        <span class="category-badge">Music</span>
+                        <h5 class="card-title">How childhood viral infections may year 2021 Section</h5>
+                        <p class="card-text">By Admin | December 9, 2021</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="card-img-top" alt="Story">
+                    <div class="card-body">
+                        <span class="category-badge">Animal</span>
+                        <h5 class="card-title">Animal Nation Are Struggling To Save Their Wildlife</h5>
+                        <p class="card-text">By Admin | December 9, 2021</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://cdn.pixabay.com/photo/2018/06/13/09/33/technology-3472299_1280.jpg" class="card-img-top" alt="Story">
+                    <div class="card-body">
+                        <span class="category-badge">Travel</span>
+                        <h5 class="card-title">If you went round the world which places could</h5>
+                        <p class="card-text">By Admin | December 9, 2021</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://cdn.pixabay.com/photo/2024/11/25/10/38/mountains-9223041_1280.jpg" class="card-img-top" alt="Story">
+                    <div class="card-body">
+                        <span class="category-badge">Health</span>
+                        <h5 class="card-title">Moon They Landing How are Main Close Space Really</h5>
+                        <p class="card-text">By Admin | October 9, 2021</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="card-img-top" alt="Story">
+                    <div class="card-body">
+                        <span class="category-badge">Food</span>
+                        <h5 class="card-title">Top 10 recipes for quick meals</h5>
+                        <p class="card-text">By Admin | January 15, 2025</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=300" class="card-img-top" alt="Story">
+                    <div class="card-body">
+                        <span class="category-badge">Fitness</span>
+                        <h5 class="card-title">How to stay fit in 2025</h5>
+                        <p class="card-text">By Admin | February 20, 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="container my-4">
         <h2 class="h4 mb-3">Stay Connected</h2>
         <div class="row social-widget">
@@ -296,8 +417,86 @@
             </div>
         </div>
     </section>
+<div class="modal fade" id="viewBlogModal" tabindex="-1" aria-labelledby="viewBlogModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="viewBlogModalLabel">Blog Title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img id="blogImage" src="" alt="Blog Image" class="img-fluid mb-3">
+                <span id="blogCategory" class="category-badge"></span>
+                <p id="blogContent" class="mt-3"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="likeButton" class="btn btn-outline-primary">
+                    <i class="fas fa-thumbs-up"></i> Like (<span id="likeCount">0</span>)
+                </button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+ <script>
+    document.getElementById('blogForm').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    <!-- Bootstrap 5 JS -->
+        const title = document.getElementById('blogTitle').value;
+        const category = document.getElementById('blogCategory').value;
+        const content = document.getElementById('blogContent').value;
+        const imageFile = document.getElementById('blogImage').files[0];
+
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            const imageUrl = e.target.result;
+
+            const blogCard = `
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="${imageUrl}" class="card-img-top" alt="${title}">
+                        <div class="card-body">
+                            <span class="category-badge">${category}</span>
+                            <h5 class="card-title">${title}</h5>
+                            <p class="card-text">${content}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            const recentBlogsRow = document.getElementById('recentBlogs');
+            recentBlogsRow.insertAdjacentHTML('beforeend', blogCard);
+
+            const modal = bootstrap.Modal.getInstance(document.getElementById('writeBlogModal'));
+            modal.hide();
+            document.getElementById('blogForm').reset();
+        };
+
+        if (imageFile) {
+            reader.readAsDataURL(imageFile);
+        }
+    });
+    let likeCount = 0;
+
+    function openBlogModal(title, category, content, imageUrl) {
+        document.getElementById('viewBlogModalLabel').innerText = title;
+        document.getElementById('blogCategory').innerText = category;
+        document.getElementById('blogContent').innerText = content;
+        document.getElementById('blogImage').src = imageUrl;
+
+        likeCount = 0;
+        document.getElementById('likeCount').innerText = likeCount;
+
+        const blogModal = new bootstrap.Modal(document.getElementById('viewBlogModal'));
+        blogModal.show();
+    }
+
+    document.getElementById('likeButton').addEventListener('click', function () {
+        likeCount++;
+        document.getElementById('likeCount').innerText = likeCount;
+    });
+
+     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
